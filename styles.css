@@ -1,0 +1,266 @@
+/*
+* Credits
+* Car - Photo by ALEXGTACAR from Pexels: https: //www.pexels.com/photo/shallow-focus-photography-of-blue-alpine-car-1592384/
+* Dog - Photo by Pixabay from Pexels: https: //www.pexels.com/photo/white-long-coated-medium-size-dog-sticking-tongue-out-during-daytime-46505/
+* Landscape - Photo by Jaime Reimer from Pexels: https: //www.pexels.com/photo/beautiful-view-of-moraine-lake-2662116/
+* Girl - Photo by Antonio Florentini from Pexels: https: //www.pexels.com/photo/portrait-of-woman-holding-a-rose-18500444/
+*/
+*,::before,::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button{
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    text-decoration: none;
+    text-transform: none;
+    line-height: normal;
+    overflow: visible;
+}
+:root{
+    --center-size: 290px;
+    --center-text: -125px;
+    --center-text-offset: 130px;
+    --center-img-size: 220px;
+    --border-clr: white;
+}
+
+body{
+    background-color: var(--border-clr);
+    min-height: 100svh;
+    font-family: system-ui;
+}
+.popart{
+    --gap: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100svh;
+    gap: var(--gap);
+}
+
+.popart .img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--border-clr);
+}
+.popart img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 300ms ease-in-out;
+}
+
+/* center image - this gets all the filters */
+.popart .img:nth-of-type(1) {
+    position: absolute; 
+    inset: 0;
+    margin: auto;
+    width: var(--center-img-size);
+    height: var(--center-img-size);
+    z-index: 999;
+    border: var(--gap) solid var(--border-clr); 
+    border-radius: 50%;
+    filter: 
+        saturate(var(--saturate))
+        brightness(var(--brightness))
+        hue-rotate(var(--hue-rotate))
+        contrast(var(--contrast));
+}
+.popart .img:nth-of-type(2) {
+    filter: saturate(var(--saturate));
+}
+.popart .img:nth-of-type(3) {
+    filter: brightness(var(--brightness));
+}
+.popart .img:nth-of-type(4) {
+    filter: hue-rotate(var(--hue-rotate)); 
+}
+.popart .img:nth-of-type(5) {
+    filter: contrast(var(--contrast));
+}
+
+
+.options {
+    --_btn-deg-clr: #8cc9c6;
+    --_btn-bg: #FFF;
+
+    position: absolute;
+    z-index: 100;
+    inset: 0;
+    margin: auto;
+    display: grid;
+    text-transform: uppercase;
+    place-items: center;
+    cursor: pointer;
+    transition: scale 500ms ease-in-out;
+    xscale: 0;
+}
+
+body:hover .options{
+    scale: 1;
+}
+.options .btn-data button{
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    padding: .75rem;
+    display: grid;
+    place-content: center;
+    z-index: 300;
+    transition: 300ms ease-in-out;
+    rotate: -90deg;
+}
+[data-direction="plus"]{
+   translate: -5px; /* hack to fix plus button position - I need to do this propertly */
+}
+.options .btn-data:hover button{
+    background: #777;
+    color: white
+}
+
+.options .btn-data button:hover {
+    background: black;
+    color: white
+}
+
+.options span {
+    translate: var(--center-text) 0;
+    transform-origin: var(--center-text-offset);
+    position: relative;
+}
+.options > * {
+    grid-area: 1/1;
+}
+.options .btn-data {
+    display: grid;
+    place-items: center;
+    background-color: var(--_btn-bg);
+    z-index: 200;
+    width: var(--center-size);
+    height: var(--center-size);
+    border-radius: 50%;
+    transition: 300ms ease-in-out;
+    opacity: .8;
+    scale: 100%;
+    clip-path: polygon(0 0, 42% 0, 50% 50%, 0 42%);
+    isolation: isolate;
+    rotate: var(--_btn-rotate);
+}
+.options .btn-data::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from var(--deg) at 50% 50%, transparent, var(--_btn-deg-clr));
+    border-radius: 50%;
+    z-index: -1;
+}
+.options .btn-data:hover{
+    scale: 110%;
+    opacity: 1;
+}
+
+.options .btn-data span {
+    grid-area: 1/1;
+    rotate: var(--rot);
+    font-family: monospace;
+    font-size: 0.8rem;
+    transition: transform-origin var(--dur), translate var(--dur);
+}
+
+/* place the letter - this allows us to rotate the content without extra HTML markup */
+.options .btn-data span::before {
+    content: attr(data-char);
+    rotate: -90deg;
+    display: block;
+}
+
+.options .btn-data:nth-child(1) {
+    --_btn-rotate: 0deg;
+    
+}
+.options .btn-data:nth-child(2){
+    --_btn-rotate: 90deg;
+    --_btn-deg: 335deg;
+}
+.options .btn-data:nth-child(3) {
+    --_btn-rotate: 270deg;
+    --_btn-deg: 315deg;
+}
+.options .btn-data:nth-child(4) {
+    --_btn-rotate: 180deg;
+    --_btn-deg: 325deg;
+}
+
+
+
+.buttons{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    width: calc(var(--center-size) + 1.5rem);
+    height: calc(var(--center-size) + 1.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.buttons button{
+    color: black;
+    transition: 500ms ease-in-out;
+    background-color: #8cc9c6;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-content: center;
+    pointer-events: auto;
+    xscale: 0;
+}
+body:hover .buttons button{
+    scale: 1;
+     /*transition-delay: 500ms; */
+}
+.buttons button:nth-child(2){
+    translate: 0 calc(var(--center-size) / 2 - .5rem);
+}
+.buttons button svg{
+    width: 1rem;
+    height: 1rem;
+}
+.buttons button:hover{
+    background-color: black;
+    color: white;
+}
+
+@media (min-width: 720px) {
+    :root {
+        --center-size: 450px;
+        --center-text: -200px;
+        --center-text-offset: 205px;
+        --center-img-size: 370px;
+    }
+    .buttons button{
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+    .buttons button svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}

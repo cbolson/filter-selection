@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPC - filter selection</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div id="popart" class="popart" style="--saturate:100%; --brightness:100%; --hue-rotate: 0deg; --contrast:100%; ">
+  <div class="img">
+    <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  </div>
+  <div class="img">
+    <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  </div>
+  <div class="img">
+    <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  </div>
+  <div class="img">
+    <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  </div>
+  <div class="img">
+    <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  </div>
+</div>
+
+<section class="options">
+
+  <div class="btn-data" id="control-saturate" style="--deg: 315deg;">
+    <span style="--rot:15deg;"><button type="button" data-direction="minus" data-type="saturate" title="Decrease Saturation">-</button></span>
+    <span data-char="s" style="--rot:25deg;"></span>
+    <span data-char="a" style="--rot:29deg;"></span>
+    <span data-char="t" style="--rot:33deg;"></span>
+    <span data-char="u" style="--rot:37deg;"></span>
+    <span data-char="r" style="--rot:41deg;"></span>
+    <span data-char="a" style="--rot:45deg;"></span>
+    <span data-char="t" style="--rot:49deg;"></span>
+    <span data-char="i" style="--rot:54deg;"></span>
+    <span data-char="o" style="--rot:59deg;"></span>
+    <span data-char="n" style="--rot:63deg;"></span>
+    <span style="--rot:77deg;"><button type="button" data-direction="plus" data-type="saturate" title="Increase Saturation">+</button></span>
+
+  </div>
+
+  <div class="btn-data" id="control-brightness" style="--deg: 355deg;">
+    <span style="--rot:15deg;"><button type="button" data-direction="minus" data-type="brightness" title="Decrease Brightness">-</button></span>
+    <span data-char="b" style="--rot:25deg;"></span>
+    <span data-char="r" style="--rot:29deg;"></span>
+    <span data-char="i" style="--rot:33deg;"></span>
+    <span data-char="g" style="--rot:37deg;"></span>
+    <span data-char="h" style="--rot:41deg;"></span>
+    <span data-char="t" style="--rot:45deg;"></span>
+    <span data-char="n" style="--rot:49deg;"></span>
+    <span data-char="e" style="--rot:54deg;"></span>
+    <span data-char="s" style="--rot:59deg;"></span>
+    <span data-char="s" style="--rot:63deg;"></span>
+    <span style="--rot:77deg;"><button type="button" data-direction="plus" data-type="brightness" title="Increase Brightness">+</button></span>
+  </div>
+  <div class="btn-data" id="control-hue">
+    <span style="--rot:15deg;"><button type="button" data-direction="minus" data-type="hue-rotate" title="Decrease Hue-rotate">-</button></span>
+    <span data-char="h" style="--rot:25deg;"></span>
+    <span data-char="u" style="--rot:29deg;"></span>
+    <span data-char="e" style="--rot:33deg;"></span>
+    <span data-char="-" style="--rot:37deg;"></span>
+    <span data-char="r" style="--rot:41deg;"></span>
+    <span data-char="o" style="--rot:45deg;"></span>
+    <span data-char="t" style="--rot:49deg;"></span>
+    <span data-char="a" style="--rot:54deg;"></span>
+    <span data-char="t" style="--rot:59deg;"></span>
+    <span data-char="e" style="--rot:63deg;"></span>
+    <span style="--rot:77deg;"><button type="button" data-direction="plus" data-type="hue-rotate" title="Increase Hue-rotate">+</button></span>
+  </div>
+
+  <div class="btn-data" id="control-contrast">
+    <span style="--rot:15deg;"><button type="button" data-direction="minus" data-type="contrast" title="Decrease Contast">-</button></span>
+    <span data-char="" style="--rot:25deg;"></span>
+    <span data-char="c" style="--rot:29deg;"></span>
+    <span data-char="o" style="--rot:33deg;"></span>
+    <span data-char="n" style="--rot:37deg;"></span>
+    <span data-char="t" style="--rot:41deg;"></span>
+    <span data-char="r" style="--rot:45deg;"></span>
+    <span data-char="a" style="--rot:49deg;"></span>
+    <span data-char="s" style="--rot:54deg;"></span>
+    <span data-char="t" style="--rot:59deg;"></span>
+    <span data-char="" style="--rot:63deg;"></span>
+    <span style="--rot:77deg;"><button type="button" data-direction="plus" data-type="contrast" title="Increase Contast">+</button></span>
+  </div>
+
+</section>
+</div>
+
+
+<div class="buttons">
+  <button type="button" id="btn-copy" title="copy CSS">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-copy">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
+      <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+    </svg>
+  </button>
+  <button type="button" id="btn-image" title="Random Image">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-switch-2">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M3 17h5l1.67 -2.386m3.66 -5.227l1.67 -2.387h6" />
+      <path d="M18 4l3 3l-3 3" />
+      <path d="M3 7h5l7 10h6" />
+      <path d="M18 20l3 -3l-3 -3" />
+    </svg>
+  </button>
+  <button type="button" id="btn-reset" title="reset values">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-restore">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M3.06 13a9 9 0 1 0 .49 -4.087" />
+      <path d="M3 4.001v5h5" />
+      <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+    </svg>
+  </button>
+
+</div>
+</body>
+</html>
